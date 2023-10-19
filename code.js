@@ -1,44 +1,37 @@
-function permutationSort(a, length, tests) {
-
-    /*if(a.length == length)
-    {
-        tests++
-        test = true
-        // Compare each value to each other value to ensure the array is sorted
-        for(i=0; i < a.length && test == true; i++)
+function permutationSort(a) {
+    function bruteForce(a, start)
+    { 
+        for(i = 0; i < array.length; i++)
         {
-            for(j = i; j < a.length && test == true; j++)
+            swapIndices(i, i+1, a)
+            console.log(a)
+            if(testForSort(a))
             {
-                if(a[i] > a[j])
-                {
-                    test = false
-                }
+                return true
+            }
+            if(window > 1)
+            {
+                return bruteForce(a, i)
             }
         }
-        if(test = true)
-        {
-            return tests
-        }
     }
+    return bruteForce(a, 0)
+}
 
-    else
+function swapIndices(x,y,arr)
+{
+    if(x < arr.length && y < arr.length)
     {
-        permutationSort
-    }*/
-    
-    /*for(b = a.length-1; b >= 0; b--)
-    {
-        for(c = a.length-1; c >= b; c--)
-        {
-            for(d = a.length-1; d >= c; d--)
-        }
-    }*/
-    tests = 0
+        temp = arr[x]
+        arr[x] = arr[y]
+        arr[y] = temp
+    }
+}
+
+function testForSort(a)
+{
     test = true
-    //for(k = array.length-1; k )
-    //{
-        // Compare each value to each other value to ensure the array is sorted
-        for(i=0; i < a.length; i++)
+    for(i=0; i < a.length; i++)
         {
             for(j = i; j < a.length; j++)
             {
@@ -48,15 +41,7 @@ function permutationSort(a, length, tests) {
                 }
             }
         }
-    //}
-    return test
+        return test
 }
 
-function swapIndices(x,y,arr)
-{
-    temp = arr[x]
-    arr[x] = arr[y]
-    arr[y] = temp
-}
-
-console.log(permutationSort([2,3,5,6,5,2,3]))
+console.log(permutationSort([1,2,4,3]))
